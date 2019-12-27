@@ -42,18 +42,27 @@ class Game(BaseScene):
 
 
         dimensions = DIMENSIONS
-        """
+        
         self.textMap = []
         with open(path.join(F_map, 'map.txt'), 'rt') as f:
-            for line in f:
-                self.textMap.append(line)
-        #print(self.textMap)
-        """
-        self.textMap = MAP
-
+            #x = f.read().splitlines() 
+            #x = f.readlines()
+            self.textMap = [line.split() for line in f]
+            #for line in f:
+             #   self.textMap.append(line)
+        print(self.textMap)
+        #print(self.textMap[0])
+        #print(self.textMap[0][0])
+        #print(x[0])
+        
+        #self.textMap = MAP
+        #print(len(self.textMap))
         for i in range(len(self.textMap)):
             x = 290
-            for j in range(len(self.textMap[i])):
+            print(self.textMap[i])
+            print(self.textMap[i][0])
+            print(len(self.textMap[i][0]))
+            for j in range(len(self.textMap[i][0])):
                 """
                 if self.textMap[i][j] == 1:
                     size = dimensions[0]
@@ -67,7 +76,9 @@ class Game(BaseScene):
                 if self.textMap[i][j] == 4:    
                     size = dimensions[3]
                 """
-                size = dimensions[self.textMap[i][j]-1]
+                #print((self.textMap[i][j]))
+                #print(int(self.textMap[i][j][0]))
+                size = dimensions[int(self.textMap[i][0][j])-1]
                 x += int(size[0]/2)
                 y = (432-size[1]/2) - (size[1]*i) 
                 block = blocky(self,(x,y),size)

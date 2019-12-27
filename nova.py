@@ -2,7 +2,7 @@ import pygame
 import pytmx
 import pyscroll
 import pymunk
-import pymunk.util as u
+#import pymunk.util as u
 #import classes
 #from classes import *
 from settings import *
